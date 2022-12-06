@@ -1,4 +1,5 @@
 @use 'components';
+
 @mixin section-display {
 	width: 100%;
 	max-width: 992px;
@@ -6,15 +7,19 @@
 	padding: 3rem;
 }
 
+html {
+	min-width: 100vw;
+}
+
 body {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
 .nav {
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
+	justify-content: space-around;
 	width: 100%;
 	height: 4rem;
 	border-bottom: solid 1px #ddd;
@@ -26,7 +31,6 @@ body {
 
 .sec-home {
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	@include section-display();
 	.home-cta {
@@ -37,6 +41,14 @@ body {
 		.home-title {
 			width: 20rem;
 			font-size: 3rem;
+		}
+		.home-description {
+			width: 300px;
+		}
+		.lead-magnet {
+			.input-col {
+				max-width: 200px;
+			}
 		}
 	}
 }
@@ -60,7 +72,6 @@ body {
 		display: flex;
 		gap: 1rem;
 		align-items: center;
-		margin: auto;
 		.text {
 			padding: 2rem 0;
 			flex: 1;
@@ -81,7 +92,20 @@ body {
 			}
 		}
 		.image {
-			max-width: 20rem;
+			img {
+				max-width: 20rem;
+			}
 		}
+	}
+}
+
+.sec-benefits {
+	border-top: 1px solid #ddd;
+	.intro {
+		@extend .sec-features, .intro;
+	}
+	.benefit-cards {
+		width: 100%;
+		padding: 0 2rem 2rem 2rem;
 	}
 }
